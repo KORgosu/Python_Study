@@ -1,0 +1,15 @@
+// 지수함수 y = e^2x의 그래프를 구하시오
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-0.2, 2, 10000)
+y = np.exp(2 * x)
+fig = plt.figure()
+plt.plot(x, y, '-b')
+plt.title('Exponential Wave', color = 'b')
+plt.xlabel('X')
+plt.ylabel('Exp(x)')
+plt.grid()
+plt.axhline(y = 0, color = 'k')
+plt.axvline(x = 0, color = 'k')
+plt.show()
