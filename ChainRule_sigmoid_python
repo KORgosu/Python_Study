@@ -1,0 +1,16 @@
+# 이변수 함수의 연쇄법칙 III(시그모이드 함수)
+from sympy import *
+import sympy as sym
+def partial(a, b, i): # a를b에 대한i 계 편도함수 구하기
+    for j in range(i):
+        a = diff(a, b)
+    return a
+def sigmo(x):# 시그모이드 함수 정의
+    return 1/(1 + exp(-x))
+# 함수의 반환 값
+x, y, z, s, t = symbols('x y z s t')
+z = sigmo(x + y) # z = f(x, y)
+x_st = s + t # x = x(s,t)
+y_st = s - t # y = y(s,t)
+print(partial(z, x, 1)*partial(x_st, s, 1) + partial(z, y, 1)* partial(y_st, s,1))
+print(partial(z, x, 1)*partial(x_st, t, 1) + partial(z, y, 1) * partial(y_st, t,1))
