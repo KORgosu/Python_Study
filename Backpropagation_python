@@ -1,0 +1,14 @@
+# 오차역전파법 backpropagation
+import numpy
+
+#시행착오 과정을 통해 신경망 훈련, 가중치 조절
+def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
+    for iteration in range(number_of_training_iterations):
+        output = self.think(training_set_inputs)
+        error = training_set_outputs - output
+        adjustment = numpy.dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
+        self.synaptic_weights += adjustment
+
+# 단일뉴런 신경망 통한 입력전달
+def think(self, inputs):
+    return self.__sigmoid(numpy.dot(inputs, self.synaptic_weights))
