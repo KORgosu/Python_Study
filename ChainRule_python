@@ -1,0 +1,11 @@
+# 이변수 함수의 연쇄법칙
+from sympy import *
+def partial(a, b, i): # a를b에 대한i 계 편도함수 구하기
+    for j in range(i):
+        a = diff(a, b)
+            return a
+x, y, z, t = symbols('x y z t')
+z = y** 3 + y**2*x + 7*x +5 # z = f(x, y)
+x_t =2*t +7 # x = x(t)
+y_t = t**2+ 3*t + 1 # y = y(t)
+print(partial(z, x,1)*partial(x_t, t,1)+partial(z, y,1)*partial(y_t, t,1))
